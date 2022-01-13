@@ -8,8 +8,9 @@
   {
     "outputFileName": "wwwroot/site/all.min.js",
     "inputFiles": [
-      "wwwroot/bs/js/bootstrap.min.js"
+      "wwwroot/jquery/jquery.js",
+      "wwwroot/bs/js/bootstrap.js"
     ],
-    "minify": { "enabled": false }
+    "minify": { "enabled": true }
   }
 ]
