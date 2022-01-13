@@ -1,14 +1,45 @@
 ﻿
 @{
     ViewData["Title"] = "About";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
+@model AboutModel
+@* html helper yerine net core tarafında built-in tag-helperslarımız var bu built-in tag helper kullanabilmek için viewimports dosyasına @addTagHelper directive yazıyoruz. *@
+
+@* Tag Helpers html elementlerinin serverside olarak render edilip html elementine çevirlmesini sağlar ve html elementine bazı özellikler serverside kazandırılır. *@
+
+<a asp-controller="Home" asp-action="Index" asp-route-id="1">Home Index Page</a>
+
+@*<a href="/Home/Index/1">Page</a>*@
+
+
+
+
+<form>
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Title" />
+    <span asp-validation-for="Title"></span>
+</form>
+
+<select asp-for="Title" asp-items="ViewBag.Items"></select>
+
+@*<list-group name="sdsad"></list-group>*@
+
+@* Home/Index/1 *@
+
 
 <h1>About</h1>
 
 <p>
     About Page
 </p>
+
+
+@section Content {
+    <p style="color:red">ABOUT görünen ekstra html</p>
+
+}
 
 
 @* ViewImports *@

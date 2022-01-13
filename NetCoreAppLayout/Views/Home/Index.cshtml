@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <!DOCTYPE html>
@@ -13,5 +13,20 @@
 <body>
 
     Anasayfa
+
+    @section Content {
+        <p>Sadece Anasayfada görünen ekstra html</p>
+    }
+
+
+    @section scripts{
+        <script>
+            $(document).ready(function () {
+                alert('Home Page')
+            });
+        </script>
+
+    }
+
 </body>
 </html>
