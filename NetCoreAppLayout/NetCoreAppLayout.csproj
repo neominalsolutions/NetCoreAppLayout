@@ -5,10 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Content Remove="bundleconfig.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="bundleconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 

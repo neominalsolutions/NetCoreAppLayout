@@ -12,5 +12,11 @@ namespace NetCoreAppLayout.Controllers
         {
             return View();
         }
+
+        // IActionResult ile ActionResult aynı resultları döndürebilir fakat IActionResult interface olarak işaretlenmiştir. Net core da 
+        public IActionResult About()
+        {
+            return View();
+        }
     }
 }

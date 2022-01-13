@@ -1,0 +1,15 @@
+[
+  {
+    "outputFileName": "wwwroot/site/all.min.css",
+    "inputFiles": [
+      "wwwroot/bs/css/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/site/all.min.js",
+    "inputFiles": [
+      "wwwroot/bs/js/bootstrap.min.js"
+    ],
+    "minify": { "enabled": false }
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap@5.1.3",
+      "destination": "wwwroot/bs",
+      "provider": "cdnjs"
+    },
+    {
+      "library": "popper.js@2.11.2",
+      "destination": "wwwroot/bs",
+      "provider": "cdnjs"
+    }
+  ]
+}

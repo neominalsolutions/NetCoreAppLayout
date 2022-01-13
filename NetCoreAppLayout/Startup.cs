@@ -32,6 +32,7 @@ namespace NetCoreAppLayout
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles(); // wwwroot altýndaki dosyalarýn çalýþmasýný saðlar. statik dosyalarýn tutulduðu dizini aktif hale getiren servis. built-in net core tarafýndan yazýlmýþ bir middleware
             app.UseRouting();
 
             // bu middleware uygulama gelen isteklerin route isteklerin farklý uygulama templateleri için yakalanmasýný saðlar.
