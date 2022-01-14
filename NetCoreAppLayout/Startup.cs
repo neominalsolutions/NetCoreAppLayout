@@ -14,6 +14,7 @@ using System.Net.Mime;
 using System.Threading.Tasks;
 using System.Web;
 
+
 namespace NetCoreAppLayout
 {
     public class Startup
@@ -23,7 +24,9 @@ namespace NetCoreAppLayout
         public void ConfigureServices(IServiceCollection services)
         {
             // uygulamam fluent validation desteklesin. ve uygulama içerisindeki startup dosyasýnýn bulunduðu dizinde ne kadar validator sýnýfý varsa projeye register et diyoruz.
-            services.AddControllersWithViews().AddFluentValidation(x=> x.RegisterValidatorsFromAssemblyContaining<Startup>()); // mvc application
+            services.AddControllersWithViews().AddRazorRuntimeCompilation().AddFluentValidation(x=> x.RegisterValidatorsFromAssemblyContaining<Startup>()); // mvc application
+
+         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

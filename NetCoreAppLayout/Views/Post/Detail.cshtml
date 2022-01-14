@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model PostDetailViewModel
+
+
+Başlık: 
+<h2>@Model.PostTitle</h2>
+
+İçerik:
+<p>
+    @Model.PostBody
+</p>
+
+Yorumlar:
+<ul class="list-group-flush" id="comments">
+    @foreach (var item in Model.PostComments)
+    {
+        <li class="list-group-item"><span class="text-info">@item.CommentBy</span> @item.Message (@item.CommentDate.ToShortDateString())</li>
+    }
+</ul>
+
+<form id="commentForm" name="CommentForm" >
+    <div class="form-group">
+        <input type="email" class="form-control" name="Email" placeholder="Email" />
+    </div>
+    <div class="form-group">
+       <textarea class="form-control" placeholder="Mesajınız" name="Message"></textarea>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-dark" type="submit" name="name" value="Yorum Yap" />
+    </div>
+</form>
+
+@section scripts {
+
+    <script>
+
+    $(document).ready(function () {
+
+        $("#commentForm").on("submit", function (event) {
+            event.preventDefault(); // formu durdur.
+
+
+
+            const param = {
+                Email: CommentForm.Email.value,
+                Message: CommentForm.Message.value
+            };
+
+
+            $.ajax({
+                method: 'Post',
+                url: '/send-comment',
+                data: JSON.stringify(param),
+                contentType: 'application/json',
+                success: function (response) {
+                    // response da ise db ye eklenen nesnenin değerlerini döndürürüz ekrana bu yeni değerleri basmak için
+                    // li append et
+                    const listTemplate = `
+                     <li class="list-group-item"><span class="text-info">${CommentForm.Email.value}</span> ${CommentForm.Message.value} (Şuan) </li>
+                    `;
+                    $('#comments').append(listTemplate);
+                    alert(response?.message);
+
+                    $('#commentForm').trigger("reset");
+                },
+                error: function (err) {
+                    // throw new exception fırlatırsak zaten buraya düşecek.
+                    console.log('err', err);
+                }
+            })
+
+        })
+
+
+
+    })
+
+    </script>
+
+}
+
+
