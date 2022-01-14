@@ -110,9 +110,6 @@ namespace NetCoreAppLayout
 
 
                     context.Response.ContentType = "text/plain; charset=utf-8";
-
-
-
                     await context.Response.WriteAsync("Günaydýn!");
 
                 });
@@ -124,68 +121,9 @@ namespace NetCoreAppLayout
 
                     // async bir func olduðu için await ile çaðýrýrýz.
                      var model = await BodyParser<List<UserModel>>.ParseAsync(context.Request.Body, context.Request.ContentType);
-
-
-                    //Formdan gönderilen deðerleri param þeklinde
-                    //json olarak formdan gönderilen deðerleri ise jsonString þeklinde okuyabiliyoruz.
-                    //using (StreamReader stream = new StreamReader(context.Request.Body))
-                    //{
-
-                    //    string body = await stream.ReadToEndAsync();
-                    //    // body = "param=somevalue&param2=someothervalue"
-
-
-                    //    if (context.Request.ContentType == "application/json")
-                    //    {
-
-
-
-                    //        var userModel = System.Text.Json.JsonSerializer.Deserialize<UserModel>(body);
-                    //        var stringJson = System.Text.Json.JsonSerializer.Serialize(userModel);
-                    //    }
-
-
-                    //    else if (context.Request.ContentType == "application/x-www-form-urlencoded")
-                    //    {
-
-                    //        // formdaki her bir alanýn arasýna & iþareti koyarak gelecek veri
-                    //        //List<string> bodyParams = body.Split("&").ToList();
-
-                    //        //for (int i = 0; i < bodyParams.Count; i++)
-                    //        //{
-                    //        //   bodyParams[i] = HttpUtility.UrlDecode(bodyParams[i]);   
-                    //        //}
-
-                    //        //var model = new UserModel
-                    //        //{
-                    //        //    Email = bodyParams.Find(x => x.Contains("Email")).Replace("Email=",""),
-                    //        //    UserName = bodyParams.Find(x => x.Contains("UserName")).Replace("UserName=","")
-                    //        //};
-
-                    //        var model = BodyParser<UserModel>.ParseJSON(body);
-
-
-
-                    //    }
-                    //}
                 });
 
-                endpoints.MapPost("create-category", async context =>
-                {
-                    // Formdan gönderilen deðerleri param þeklinde 
-                    // json olarak formdan gönderilen deðerleri ise jsonString þeklinde okuyabiliyoruz.
-                    using (StreamReader stream = new StreamReader(context.Request.Body))
-                    {
-
-
-                        string body = await stream.ReadToEndAsync();
-                        // body = "param=somevalue&param2=someothervalue"
-                       //var model = BodyParser<CategoryModel>.ParseJSON(body);
-
-                        
-
-                    }
-                });
+              
             });
         }
     }
