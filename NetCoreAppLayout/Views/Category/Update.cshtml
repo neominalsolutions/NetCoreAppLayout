@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model CategoryUpdateInputModel
+
+<form method="post" action="update-category-post">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Kategori Adı</label>
+        <input asp-for="Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <span asp-validation-for="Name" id="emailHelp" class="form-text text-muted"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Açıklama</label>
+        <textarea class="form-control" asp-for="Description"></textarea>
+        <span asp-validation-for="Description"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>
+

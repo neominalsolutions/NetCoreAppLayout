@@ -20,7 +20,7 @@
 
     @* bu styleslar her sayfada zorunlu değil false yerine true yazarsak bu durumda her sayfa bu section çağırmamız gerekir. *@
     @* Layoutdaki sıra ile sayfama stil yüklemek istiyorum. *@
-    @RenderSection("styles",false)
+    @RenderSection("styles", false)
 </head>
 <body>
 
@@ -62,6 +62,7 @@
 
 
     <script src="~/site/all.min.js"></script>
+    @await Html.PartialAsync("_ValidationScriptsPartial")
     @RenderSection("scripts", false)
 </body>
 </html>
